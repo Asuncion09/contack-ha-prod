@@ -18,19 +18,19 @@ export class ContactsService {
     return await this.contactRepository.findAll(user);
   }
 
-  async findOne(id: number, user: UserActiveInterface) {
+  async findOne(id: string, user: UserActiveInterface) {
     return await this.contactRepository.findOne(id, user);
   }
 
   async update(
-    id: number,
+    id: string,
     updateContactDto: UpdateContactDto,
     user: UserActiveInterface,
   ) {
     return await this.contactRepository.update(id, updateContactDto, user);
   }
 
-  async remove(id: number, user: UserActiveInterface) {
+  async remove(id: string, user: UserActiveInterface) {
     return await this.contactRepository.remove(id, user);
   }
 }

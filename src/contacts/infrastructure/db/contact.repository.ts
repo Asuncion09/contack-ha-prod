@@ -33,7 +33,7 @@ export class ContactRepository {
     });
   }
 
-  async findOne(id: number, user: UserActiveInterface) {
+  async findOne(id: string, user: UserActiveInterface) {
     const contact = await this.contactRepository.findOneBy({ id });
 
     if (!contact) {
@@ -46,7 +46,7 @@ export class ContactRepository {
   }
 
   async update(
-    id: number,
+    id: string,
     updateContactDto: UpdateContactDto,
     user: UserActiveInterface,
   ) {
@@ -57,7 +57,7 @@ export class ContactRepository {
     });
   }
 
-  async remove(id: number, user: UserActiveInterface) {
+  async remove(id: string, user: UserActiveInterface) {
     await this.findOne(id, user);
     return await this.contactRepository.softDelete({ id });
   }

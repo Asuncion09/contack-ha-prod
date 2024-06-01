@@ -37,13 +37,13 @@ export class ContactsController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: number, @ActiveUser() user: UserActiveInterface) {
+  findOne(@Param('id') id: string, @ActiveUser() user: UserActiveInterface) {
     return this.contactsService.findOne(id, user);
   }
 
   @Patch(':id')
   update(
-    @Param('id') id: number,
+    @Param('id') id: string,
     @Body() updateContactDto: UpdateContactDto,
     @ActiveUser() user: UserActiveInterface,
   ) {
@@ -51,7 +51,7 @@ export class ContactsController {
   }
 
   @Delete(':id')
-  remove(@Param('id') id: number, @ActiveUser() user: UserActiveInterface) {
+  remove(@Param('id') id: string, @ActiveUser() user: UserActiveInterface) {
     return this.contactsService.remove(id, user);
   }
 }
